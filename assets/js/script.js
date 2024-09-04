@@ -13,7 +13,6 @@ function saveForm() {
   const comentarios = document.getElementById("comment").value;
 
   const registroExistente = registros.find((reg) => reg.rut === rut);
-
   if (registroExistente) {
     if (confirm("El registro ya existe. ¿Desea sobrescribirlo?")) {
       Object.assign(registroExistente, {
@@ -53,14 +52,14 @@ function deleteRecord() {
   if (index !== -1) {
     registros.splice(index, 1);
     alert("Registro eliminado exitosamente.");
-    document.getElementById("medicalForm").reset();
+    document.querySelector("form").reset();
   } else {
     alert("Registro no encontrado.");
   }
 }
 
 function searchByLastName() {
-  const apellido = document.getElementById("search_apellido").value;
+  const apellido = document.getElementById("search").value;
   const registro = registros.find(
     (reg) => reg.apellidos.toLowerCase() === apellido.toLowerCase()
   );
